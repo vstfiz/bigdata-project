@@ -2,6 +2,9 @@ import cv2
 from darkflow.net.build import TFNet
 import numpy as np
 import time
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
 option = {
     'model': 'cfg/tiny-yolo-voc-1c.cfg',
     'load': 2000,
@@ -9,7 +12,7 @@ option = {
 }
 
 TFNet=TFNet(option) #initialises model
-capture = cv2.VideoCapture('test22.mp4')
+capture = cv2.VideoCapture('test.mp4')
 colors = [tuple(255 * np.random.rand(3)) for i in range(5)]
 
 while (capture.isOpened()):

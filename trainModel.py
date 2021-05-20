@@ -44,10 +44,12 @@ if __name__ == '__main__':
     for testing
     """
 
-    folder = 'images'
-    img = [im for im in os.scandir('images') if '000001' in im.name][0]
+    folder = 'images/Far'
+    img = [im for im in os.scandir('images/Far')]
     objects = ['fidget_spinner']
     tl = [(10, 10)]
     br = [(100, 100)]
     savedir = 'annotations'
-write_xml(folder, img, objects, tl, br, savedir)
+for i in img:
+    print(i.name + " annotation done")
+    write_xml(folder, i, objects, tl, br, savedir)
